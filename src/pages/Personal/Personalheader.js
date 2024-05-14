@@ -1,19 +1,20 @@
-/*
- * @Author: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @Date: 2024-05-04 15:37:32
- * @LastEditors: error: error: git config user.name & please set dead value or install git && error: git config user.email & please set dead value or install git & please set dead value or install git
- * @LastEditTime: 2024-05-04 16:16:48
- * @FilePath: \new_code_1c:\Users\86135\Downloads\Leisure-community-main\Leisure-community-main\src\pages\Personal\Personalheader.js
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
 import React from 'react'
 import './Personalheader.css'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-
+import { useDispatch } from 'react-redux'
+import { fetchUserInfo } from '@/store/modules/user'
+import { useEffect} from 'react'
+import { useSelector } from 'react-redux'
 const Personalheader = () => {
+   // 触发用户个人信息action
+   const dispatch = useDispatch()
+   useEffect(()=>{
+       dispatch(fetchUserInfo())
+   },[dispatch])
+ const username = useSelector(state => state.user.userInfo.username)
   const [userInfo] = useState({
-    name: '晴绘',
+    name: username,
     level: 'Lv.1',
     followers: '粉丝 0 | 关注 0 | 点赞 0',
     location: '南京 | 南京理工大学紫金学院',
@@ -33,7 +34,7 @@ const Personalheader = () => {
       <div className='user-profile'>
         {/* 左侧头像 */}
         <div className='avatar'>
-          <img src={require('../../assets/images/pictures/personalheadlike.png')} alt='用户头像' />
+          <img src={require('../../assets/images/personal/personalheadlike.png')} alt='用户头像' />
         </div>
 
         {/* 中间用户信息 */}
@@ -52,5 +53,4 @@ const Personalheader = () => {
     </div>
   )
 }
-
 export default Personalheader
