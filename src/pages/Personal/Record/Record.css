@@ -1,0 +1,11 @@
+.record-all {
+  background-color: #f5fbfd;
+  height: 100vh;
+  overflow-y: hidden;
+}
+
+.main-content {
+  margin-top: 30px;
+  margin-left: 20px;
+  width: 1200px;
+}

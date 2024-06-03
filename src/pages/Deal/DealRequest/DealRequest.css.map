@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sourceRoot": "",
+  "sources": [
+    "DealRequest.scss"
+  ],
+  "names": [],
+  "mappings": "AAAA;EACE;EACA",
+  "file": "DealRequest.css"
+}
